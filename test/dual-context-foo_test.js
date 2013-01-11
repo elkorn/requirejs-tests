@@ -1,4 +1,4 @@
-var requirejs_tests = require('../lib/requirejs-tests.js');
+var Foo = require('../lib/dual-context-foo.js').Foo;
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -20,17 +20,24 @@ var requirejs_tests = require('../lib/requirejs-tests.js');
     test.ifError(value)
 */
 
-exports['awesome'] = {
+exports['Foo'] = {
   setUp: function(done) {
     'use strict';
     // setup here
     done();
   },
-  'no args': function(test) {
+  'available in backend context': function(test) {
     'use strict';
     test.expect(1);
     // tests here
-    test.equal(requirejs_tests.awesome(), 'awesome', 'should be awesome.');
+    test.equal(typeof Foo, 'function', 'Should be available as a function.');
+    test.done();
+  },
+  'members available in backend context' : function(test) {
+    'use strict';
+    test.expect(1);
+    var foo = new Foo(2, 3);
+    test.equal(typeof foo.barBaz, 'function', 'barBaz should be available as a function.');
     test.done();
   }
 };
