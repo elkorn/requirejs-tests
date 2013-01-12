@@ -20,7 +20,7 @@ var Foo = require('../../lib/dual-context-foo.js').Foo;
     test.ifError(value)
 */
 
-exports['Foo'] = {
+exports.Foo = {
   setUp: function(done) {
     'use strict';
     // setup here

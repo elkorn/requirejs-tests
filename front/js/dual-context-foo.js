@@ -1,1 +1,1 @@
-/home/helluin/Documents/Git/requirejs-tests/lib/dual-context-foo.js
+../../lib/dual-context-foo.js
